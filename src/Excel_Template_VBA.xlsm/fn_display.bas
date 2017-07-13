@@ -1,5 +1,5 @@
 Attribute VB_Name = "fn_display"
-Sub modo_apresentação()
+Sub modo_apresentação_in_out()
     If Application.DisplayFullScreen = True Then
             Application.DisplayFullScreen = False
             ActiveWindow.DisplayHeadings = False
@@ -16,6 +16,19 @@ Sub modo_apresentação()
     Application.WindowState = xlMaximized
 End Sub
 
+Sub Congela()
+    'Retira visualização
+    Application.ScreenUpdating = False
+    Application.Calculation = xlCalculationManual
+    Application.EnableEvents = False
+End Sub
+
+Sub Descongela()
+    'Retorna visualização
+    Application.ScreenUpdating = True
+    Application.Calculation = xlCalculationAutomatic
+    Application.EnableEvents = True
+End Sub
 
 
 

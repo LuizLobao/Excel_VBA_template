@@ -66,24 +66,7 @@ Function MostraRelatorioAtivo() As String
        RelatorioAtivo <> "Relatorio1" And _
        RelatorioAtivo <> "Relatorio2" And _
        RelatorioAtivo <> "Relatorio3" And _
-       RelatorioAtivo <> "Relatorio4" And _
-       RelatorioAtivo <> "Relatorio5" And _
-       RelatorioAtivo <> "Relatorio6" And _
-       RelatorioAtivo <> "Relatorio7" And _
-       RelatorioAtivo <> "Relatorio8" And _
-       RelatorioAtivo <> "Relatorio9" And _
-       RelatorioAtivo <> "Relatorio10" And _
-       RelatorioAtivo <> "Relatorio11" And _
-       RelatorioAtivo <> "Relatorio12" And _
-       RelatorioAtivo <> "Relatorio13" And _
-       RelatorioAtivo <> "Relatorio14" And _
-       RelatorioAtivo <> "Relatorio15" And _
-       RelatorioAtivo <> "Relatorio16" And _
-       RelatorioAtivo <> "Relatorio17" And _
-       RelatorioAtivo <> "Relatorio18" And _
-       RelatorioAtivo <> "Relatorio19" And _
-       RelatorioAtivo <> "Relatorio20" And _
-       RelatorioAtivo <> "Relatorio21" Then
+       RelatorioAtivo <> "Relatorio4" Then
        RelatorioAtivo = "teste"
     End If
     MostraRelatorioAtivo = RelatorioAtivo

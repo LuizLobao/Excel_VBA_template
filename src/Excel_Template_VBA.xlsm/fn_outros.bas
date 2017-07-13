@@ -5,20 +5,18 @@ Function AdminAnaliseDeTemposPadrao(Atividade As String, InicioFim As String)
 datahora = "" 'zero o variavel para garantir que não está trazendo algum valor da memoria
 datahora = Format(Now, "YYYY-MM-DD HH:MM:SS")
 
-    'localiza a coluna ATIVIDADE na linha 3
-    ColAtividade = fnLocalizaColunaCabecalho("AdminTempos", 3, "Atividade")
+'localiza a coluna ATIVIDADE na linha 3
+ColAtividade = fnLocalizaColunaCabecalho("AdminTempos", 3, "Atividade")
 
-    'localiza linha da Atividade para registro das informações
-    LinAtividade = fnLocalizaLinhaCabecalho("AdminTempos", CInt(ColAtividade), Atividade)
-    
-    'registro a hora de inicio ou fim com base na variavel recebida
-    If InicioFim = "inicio" Then
-        AdminTempos.Cells(LinAtividade, ColAtividade + 1) = datahora
-    ElseIf InicioFim = "fim" Then
-        AdminTempos.Cells(LinAtividade, ColAtividade + 2) = datahora
-    End If
-    
-    MenuGeografiaEmpresarial
+'localiza linha da Atividade para registro das informações
+LinAtividade = fnLocalizaLinhaCabecalho("AdminTempos", CInt(ColAtividade), Atividade)
+
+'registro a hora de inicio ou fim com base na variavel recebida
+If InicioFim = "inicio" Then
+    AdminTempos.Cells(LinAtividade, ColAtividade + 1) = datahora
+ElseIf InicioFim = "fim" Then
+    AdminTempos.Cells(LinAtividade, ColAtividade + 2) = datahora
+End If
 
 
 End Function
@@ -70,41 +68,9 @@ Sub AlteraVariavelFiltrosParaUm()
             FiltrosRel3 = 1
         ElseIf RelAtivo = "Relatorio4" Then
             FiltrosRel4 = 1
-        ElseIf RelAtivo = "Relatorio5" Then
-            FiltrosRel5 = 1
-        ElseIf RelAtivo = "Relatorio6" Then
-            FiltrosRel6 = 1
-        ElseIf RelAtivo = "Relatorio7" Then
-            FiltrosRel7 = 1
-        ElseIf RelAtivo = "Relatorio8" Then
-            FiltrosRel8 = 1
-        ElseIf RelAtivo = "Relatorio9" Then
-            FiltrosRel9 = 1
-        ElseIf RelAtivo = "Relatorio10" Then
-            FiltrosRel10 = 1
-        ElseIf RelAtivo = "Relatorio11" Then
-            FiltrosRel11 = 1
-        ElseIf RelAtivo = "Relatorio12" Then
-            FiltrosRel12 = 1
-        ElseIf RelAtivo = "Relatorio13" Then
-            FiltrosRel13 = 1
-        ElseIf RelAtivo = "Relatorio14" Then
-            FiltrosRel14 = 1
-        ElseIf RelAtivo = "Relatorio15" Then
-            FiltrosRel15 = 1
-        ElseIf RelAtivo = "Relatorio16" Then
-            FiltrosRel16 = 1
-        ElseIf RelAtivo = "Relatorio17" Then
-            FiltrosRel17 = 1
-        ElseIf RelAtivo = "Relatorio18" Then
-            FiltrosRel18 = 1
-        ElseIf RelAtivo = "Relatorio19" Then
-            FiltrosRel19 = 1
-        ElseIf RelAtivo = "Relatorio20" Then
-            FiltrosRel20 = 1
         End If
         
-         With Worksheets(RelAtivo).Shapes("btn_ExecutarConsulta")
+        With Worksheets(RelAtivo).Shapes("btn_ExecutarConsulta")
             .Fill.ForeColor.RGB = RGB(255, 0, 0)
         End With
         
@@ -121,38 +87,6 @@ Sub AlteraVariavelFiltrosParaZero()
             FiltrosRel3 = 0
         ElseIf RelAtivo = "Relatorio4" Then
             FiltrosRel4 = 0
-        ElseIf RelAtivo = "Relatorio5" Then
-            FiltrosRel5 = 0
-        ElseIf RelAtivo = "Relatorio6" Then
-            FiltrosRel6 = 0
-        ElseIf RelAtivo = "Relatorio7" Then
-            FiltrosRel7 = 0
-        ElseIf RelAtivo = "Relatorio8" Then
-            FiltrosRel8 = 0
-        ElseIf RelAtivo = "Relatorio9" Then
-            FiltrosRel9 = 0
-        ElseIf RelAtivo = "Relatorio10" Then
-            FiltrosRel10 = 0
-        ElseIf RelAtivo = "Relatorio11" Then
-            FiltrosRel11 = 0
-        ElseIf RelAtivo = "Relatorio12" Then
-            FiltrosRel12 = 0
-        ElseIf RelAtivo = "Relatorio13" Then
-            FiltrosRel13 = 0
-        ElseIf RelAtivo = "Relatorio14" Then
-            FiltrosRel14 = 0
-        ElseIf RelAtivo = "Relatorio15" Then
-            FiltrosRel15 = 0
-        ElseIf RelAtivo = "Relatorio16" Then
-            FiltrosRel16 = 0
-        ElseIf RelAtivo = "Relatorio17" Then
-            FiltrosRel17 = 0
-        ElseIf RelAtivo = "Relatorio18" Then
-            FiltrosRel18 = 0
-        ElseIf RelAtivo = "Relatorio19" Then
-            FiltrosRel19 = 0
-        ElseIf RelAtivo = "Relatorio20" Then
-            FiltrosRel20 = 0
         End If
         
         With Worksheets(RelAtivo).Shapes("btn_ExecutarConsulta")

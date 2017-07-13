@@ -46,5 +46,73 @@ If Err.Number <> 0 Then
 End If
 
 End Function
+Public Function RegistraLog(acao As String) As Boolean
+Dim cnn As New ADODB.Connection
+Dim rst As New ADODB.Recordset
+Dim objConexao As New ClasseConexao
+
+On Error GoTo tratar_erro
+
+Usuid = Environ("USERNAME")
+Dominio = Environ("USERDOMAIN")
+NomeMaquina = Environ("COMPUTERNAME")
+VersaoOffice = versao_office
+datahora = Format(Now, "YYYY-MM-DD HH:MM:SS")
+id_REL = id_RELATORIO
+nm_rel = nome_RELATORIO
+num_vers = VERSAOPLANILHA
+   
+valores = "'" & Usuid & "', '" & Dominio & "', '" & NomeMaquina & "', '" & VersaoOffice & "', '" & datahora & "', '" & id_REL & "', '" & nm_rel & "', '" & num_vers & "', '" & acao & "'"
+
+
+'Realiza conexão e consulta ao banco de dados
+objConexao.setValores "sqlprd153,1444", "SAEM6001", "N3w@Pl4nej4_DB", "DB_PLANEMP"
+objConexao.abrirConexao cnn
+
+'Realiza consulta ao banco de dados - AJUSTAR NUMERO DO ID_RELATÓRIO ****************
+objConexao.execQuery "INSERT INTO " & tabelaLog & " (USUID, Dominio, NomeMaquina, VersaoOffice, DataHora, id_RELATORIO, nome_relatorio,num_versao, acao ) VALUES (" & valores & ")", cnn, rst
+
+Exit Function
+tratar_erro:
+    MsgBox Err.Description
+Sair:
+End Function
+
+Public Function versao_office() As String
+   
+    'Criar um objeto que recebera uma Sheet
+    Dim xlApp As Object
+    Dim VersionExcel As Integer
+   
+    Set xlApp = ActiveSheet
+    VersionExcel = Val(xlApp.Application.Version)
+   
+    Select Case VersionExcel
+        Case Is > 16
+            versao_office = "Maior que 2016"
+        Case 16
+            versao_office = "2016"
+        Case 15
+            versao_office = "2013"
+        Case 14
+            versao_office = "2010"
+        Case 12
+            versao_office = "2007"
+        Case 11
+            versao_office = "2003"
+        Case 10
+            versao_office = "2002"
+        Case 9
+            versao_office = "2000"
+        Case 8
+            versao_office = "1997"
+        Case Else
+            versao_office = "Indeterminada"
+    End Select
+    versao_office = versao_office & " (" & VersionExcel & ")"
+   
+    Set xlApp = Nothing
+
+End Function
 
 

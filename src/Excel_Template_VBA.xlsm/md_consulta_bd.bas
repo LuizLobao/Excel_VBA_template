@@ -22,6 +22,8 @@ Dim LinhaCabecalho As Integer
 abaMenuSel = "AdminMenuSelecionados"
 LinhaCabecalho = 3
 
+'Regitra Hora de Inicio/Fim da Execução
+Call AdminAnaliseDeTemposPadrao("#MontaWhere", "inicio")
 
 'Identifica o Relatório Ativo e localiza onde está localizado no abaMenuSel
 RelAtivo = MostraRelatorioAtivo
@@ -106,6 +108,10 @@ col2 = fnLocalizaColunaCabecalho("AdminBase", 2, "#" & RelAtivo)
 Worksheets("AdminBase").Cells(4, col2) = cmdWhere
 
 
+
+'Regitra Hora de Inicio/Fim da Execução
+Call AdminAnaliseDeTemposPadrao("#MontaWhere", "fim")
+
 End Sub
 '##########################################################################################################################
 '
@@ -121,9 +127,11 @@ Dim RelAtivo As String
 Dim tamanho As Integer
 Dim abaBases As String
     
-abaBases = "AdminBase"
-tabelaEmp = "[dbo].[VW_Rel17_DASHBOARD_B2B]"
-
+    
+    'Regitra Hora de Inicio/Fim da Execução
+    Call AdminAnaliseDeTemposPadrao("#ConsultaRelatorio1", "inicio")
+    
+    abaBases = "AdminBase"
 
     'Retira qualquer filtro na tabela
     On Error Resume Next
@@ -149,12 +157,15 @@ tabelaEmp = "[dbo].[VW_Rel17_DASHBOARD_B2B]"
     qryGroupEmp = " group by indicador, mes_ref"
     qryOrderEmp = " order by indicador, mes_ref"
     qryCompleta = qrySelectEMP & qryWhereEmp & qryGroupEmp & qryOrderEmp
-    gBase.Range("A2") = qryCompleta
+    
+    'usar apenas para validar a query que foi gerada
+    'gBase.Range("C2") = qryCompleta
 
 
     'Chama função para rodar a query desejada
     Call RodarConsultaPadrao(abaBases, ColRel1, 3, qryCompleta, 7)
 
-
+    'Regitra Hora de Inicio/Fim da Execução
+    Call AdminAnaliseDeTemposPadrao("#ConsultaRelatorio1", "fim")
 
 End Sub
