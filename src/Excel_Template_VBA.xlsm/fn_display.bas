@@ -1,12 +1,12 @@
 Attribute VB_Name = "fn_display"
-Sub modo_apresentação_in_out()
+Sub modo_apresentacao_in_out()
     If Application.DisplayFullScreen = True Then
             Application.DisplayFullScreen = False
             ActiveWindow.DisplayHeadings = False
             Application.DisplayFormulaBar = True
             ActiveWindow.DisplayWorkbookTabs = False
     Else
-            ' modo_apresentação Macro
+            ' modo_apresentacao Macro
             Application.DisplayFullScreen = True
             ActiveWindow.DisplayHeadings = False
             Application.DisplayFormulaBar = False
@@ -17,14 +17,14 @@ Sub modo_apresentação_in_out()
 End Sub
 
 Sub Congela()
-    'Retira visualização
+    'Retira visualizacao
     Application.ScreenUpdating = False
     Application.Calculation = xlCalculationManual
     Application.EnableEvents = False
 End Sub
 
 Sub Descongela()
-    'Retorna visualização
+    'Retorna visualizacao
     Application.ScreenUpdating = True
     Application.Calculation = xlCalculationAutomatic
     Application.EnableEvents = True
