@@ -2,8 +2,8 @@ Attribute VB_Name = "fn_outros"
 
 Function AdminAnaliseDeTemposPadrao(Atividade As String, InicioFim As String)
 
-datahora = "" 'zero o variavel para garantir que não está trazendo algum valor da memoria
-datahora = Format(Now, "YYYY-MM-DD HH:MM:SS")
+DataHora = "" 'zero o variavel para garantir que não está trazendo algum valor da memoria
+DataHora = Format(Now, "YYYY-MM-DD HH:MM:SS")
 
 'localiza a coluna ATIVIDADE na linha 3
 ColAtividade = fnLocalizaColunaCabecalho("AdminTempos", 3, "Atividade")
@@ -13,9 +13,9 @@ LinAtividade = fnLocalizaLinhaCabecalho("AdminTempos", CInt(ColAtividade), Ativi
 
 'registro a hora de inicio ou fim com base na variavel recebida
 If InicioFim = "inicio" Then
-    AdminTempos.Cells(LinAtividade, ColAtividade + 1) = datahora
+    AdminTempos.Cells(LinAtividade, ColAtividade + 1) = DataHora
 ElseIf InicioFim = "fim" Then
-    AdminTempos.Cells(LinAtividade, ColAtividade + 2) = datahora
+    AdminTempos.Cells(LinAtividade, ColAtividade + 2) = DataHora
 End If
 
 

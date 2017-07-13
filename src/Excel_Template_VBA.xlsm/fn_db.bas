@@ -53,16 +53,16 @@ Dim objConexao As New ClasseConexao
 
 On Error GoTo tratar_erro
 
-Usuid = Environ("USERNAME")
+UsuId = Environ("USERNAME")
 Dominio = Environ("USERDOMAIN")
 NomeMaquina = Environ("COMPUTERNAME")
 VersaoOffice = versao_office
-datahora = Format(Now, "YYYY-MM-DD HH:MM:SS")
+DataHora = Format(Now, "YYYY-MM-DD HH:MM:SS")
 id_REL = id_RELATORIO
 nm_rel = nome_RELATORIO
 num_vers = VERSAOPLANILHA
    
-valores = "'" & Usuid & "', '" & Dominio & "', '" & NomeMaquina & "', '" & VersaoOffice & "', '" & datahora & "', '" & id_REL & "', '" & nm_rel & "', '" & num_vers & "', '" & acao & "'"
+valores = "'" & UsuId & "', '" & Dominio & "', '" & NomeMaquina & "', '" & VersaoOffice & "', '" & DataHora & "', '" & id_REL & "', '" & nm_rel & "', '" & num_vers & "', '" & acao & "'"
 
 
 'Realiza conexão e consulta ao banco de dados
